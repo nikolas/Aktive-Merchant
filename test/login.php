@@ -48,4 +48,10 @@ define('pos_id','' );
 define('user','' );
 define('e_password','' );
 define('channel_type','' );
+
+/**
+ * First Data
+ */
+define('FIRST_DATA_LOGIN','');
+define('FIRST_DATA_PEM', dirname(__FILE__) . '/fdcert.pem');
 ?>

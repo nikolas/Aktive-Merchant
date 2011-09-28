@@ -42,6 +42,8 @@ class Merchant_Connection
         if (function_exists('curl_init')) {
             $curl = curl_init($transaction_url);
 
+            // TODO: First Data requires the SSLCERT pointing to the pem file
+            //curl_setopt($curl, CURLOPT_SSLCERT, '/path/to/cert.pem')
             curl_setopt($curl, CURLOPT_PORT, $server['port']);
             curl_setopt($curl, CURLOPT_HEADER, 0);
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
