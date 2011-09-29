@@ -231,7 +231,11 @@ class Merchant_Billing_FirstData extends Merchant_Billing_Gateway
 		$post_data = $this->post_data($action, $parameters);
 		$post_data = $mylphp->buildXML($post_data);
 
-		$response = $this->parse($this->ssl_post($url, $post_data));
+		$response = $this->parse(
+			$this->ssl_post($url,
+				$post_data,
+				array('pem' => $this->options['pem']))
+		);
 
 		$test_mode = $this->is_test();
 		return new Merchant_Billing_Response(
