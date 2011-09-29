@@ -106,7 +106,7 @@ class Merchant_Billing_FirstData extends Merchant_Billing_Gateway
 	public function void($authorization, $options = array())
 	{
 		$this->post = array('authorization' => $authorization);
-		return $this->commit('void', null);
+		return $this->commit('VOID', null);
 	}
 
 	/**
@@ -233,17 +233,17 @@ class Merchant_Billing_FirstData extends Merchant_Billing_Gateway
 
 		$response = $this->parse($this->ssl_post($url, $post_data));
 
-
 		$test_mode = $this->is_test();
-
-		return new Merchant_Billing_Response($this->success_from($response), $this->message_from($response), $response, array(
-					'test' => $test_mode,
-					//'authorization' => $response['authorization_id'],
-					//'fraud_review' => $this->fraud_review_from($response),
-					'avs_result' => $this->avs_result_from($response),
-					'cvv_result' => $response->r_avs
-					)
-				);
+		return new Merchant_Billing_Response(
+			$this->success_from($response),
+			$this->message_from($response),
+			get_object_vars($response),
+			array(
+				'test' => $test_mode,
+				'avs_result' => $this->avs_result_from($response),
+				'cvv_result' => $response->r_avs
+				)
+			);
 	}
 
 	/**
