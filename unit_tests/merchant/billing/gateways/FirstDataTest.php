@@ -8,7 +8,7 @@
  *   run phpunit FirstDataTest.php
  *
  * @package Aktive Merchant
- * @author  Andreas Kollaros
+ * @author  Dobie Gillis
  * @license http://www.opensource.org/licenses/mit-license.php
  *
  */
