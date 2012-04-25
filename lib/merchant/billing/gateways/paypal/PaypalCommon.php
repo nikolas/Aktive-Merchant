@@ -3,7 +3,7 @@
 /**
  * Description of Merchant_Billing_PaypalCommon
  *
- * @package Aktive Merchant
+ * @package Aktive-Merchant
  * @author  Andreas Kollaros
  * @license http://www.opensource.org/licenses/mit-license.php
  */
@@ -114,6 +114,8 @@ class Merchant_Billing_PaypalCommon extends Merchant_Billing_Gateway
             return $response['AUTHORIZATIONID'];
         if (isset($response['REFUNDTRANSACTIONID']))
             return $response['REFUNDTRANSACTIONID'];
+        if (isset($response['PAYMENTINFO_0_TRANSACTIONID']))
+            return $response['PAYMENTINFO_0_TRANSACTIONID'];
         return false;
     }
 
